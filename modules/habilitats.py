@@ -48,7 +48,6 @@ class HabilitatsCog(commands.Cog):
             abilities = json.load(f)
         
         fuzzies = {}
-        fuzzy = False
 
         for role, abilities_dict in abilities.items():
             for name, ability in abilities_dict.items():
@@ -69,7 +68,7 @@ class HabilitatsCog(commands.Cog):
         ability = self.utilities.get_ability(top_fuzz, fuzzies[top_fuzz]['role'])
         msg = f"""
 ## {top_fuzz.capitalize()}
-_Habilitat de {role.capitalize()} de nivell {ability['level']}_
+_Habilitat de {fuzzies[top_fuzz]['role'].capitalize()} de nivell {ability['level']}_
 {ability['description']}
                     """
         if len(msg) >= 2000:
